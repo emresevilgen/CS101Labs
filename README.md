@@ -1,2 +1,2 @@
 # CS101Labs
-The Lab Codes of the CS 101 - Algorithms and Programming I
+The Lab Codes of The CS 101 - Algorithms and Programming I
