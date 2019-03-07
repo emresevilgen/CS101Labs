@@ -1,0 +1,92 @@
+import java.util.ArrayList;
+/**
+ * Creates a library by array list
+ * @author Munib Emre Sevilgen
+ * @version 1.00 2017-12-12
+ */ 
+
+public class Library
+{
+   // properties
+   ArrayList<LibraryBook>  booksInLibrary;
+     
+   // constructors
+   public Library()
+   {
+      booksInLibrary = new ArrayList<LibraryBook>();
+   }
+   
+   //methods
+   
+   /**
+    * Returns true if there are no books in the library
+    * @return whether or not the library is empty
+    */
+   public boolean isEmpty()
+   { 
+      return booksInLibrary.size() == 0;
+   }
+   
+   /**
+    * Returns a String representation of the library or no book error
+    * @return String representation of the library or no book error
+    */
+   public String toString()
+   {   
+      if ( isEmpty())
+         return ( "There is no book to show.");
+      
+      return booksInLibrary.toString();
+   }
+   
+   /**
+    * Adds a new book with the given title and author
+    * @param title of the book
+    * @param author of the book
+    */
+   public void add( String title, String author)
+   {
+      booksInLibrary.add( new LibraryBook( title, author));
+   }
+   
+   
+   /**
+    * Removes the specified book from the library, returns false if book not in library
+    * @param book that will be removed
+    * @return false if the book not in library
+    */
+   public boolean remove( LibraryBook book)
+   { 
+      if ( findByTitle( book.getTitle()) == null) {
+         return false;
+      }
+      int i;
+      i = 0; 
+      while ( i < booksInLibrary.size() ){
+         if ( book.hasSameTitle( booksInLibrary.get(i))){
+            booksInLibrary.remove(i);
+            return true;
+         }
+      }
+      return false;
+   }
+   
+   
+   /**
+    * Returns the first book with the given title or null if no such book is found.
+    * @param title that will be used for finding the book
+    * @return the first book with the given title or null if no such book is found
+    */
+   public LibraryBook findByTitle( String title)
+   { 
+      LibraryBook book = new LibraryBook ( title, "");
+      for (int i = 0; i < booksInLibrary.size(); i++){
+         if ( book.hasSameTitle( booksInLibrary.get(i)))
+                return booksInLibrary.get(i);
+      }
+      return null;
+   }
+   
+}
+
+

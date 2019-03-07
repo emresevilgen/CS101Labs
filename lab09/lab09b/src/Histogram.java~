@@ -1,0 +1,119 @@
+import java.util.ArrayList;
+/**
+ * Test methods for creating a histogram
+ * @author Munib Emre Sevilgen
+ * @version 1.00 2017-12-12
+ */
+
+public class Histogram
+{ 
+   public static void main(String[] args)
+   {
+      // contsants
+      final int NUMBEROFROLLS = 50000;
+      final int SCALECONSTANT = 10;
+      
+      // variables
+      
+      // program code
+      histogramCreator (frequencyDataCreator(NUMBEROFROLLS, SCALECONSTANT)) ;
+   }  
+   
+   /**
+    * Creates and return frequency data.
+    * @param NUMBEROFROLLS the number of the rolls
+    * @param SCALECONSTANT the scale 
+    * @return String frequency data.
+    */
+   public static ArrayList<Integer> frequencyDataCreator (int numberOfRolls, int scaleConstant)
+   {
+      Dice dice;
+      int scale;
+      int maximumFrequency;
+      ArrayList<Integer>  frequencyData;
+      ArrayList<Integer>  rollResult;
+      
+      dice = new Dice();
+      frequencyData = new ArrayList<Integer>();
+      rollResult = new ArrayList<Integer>();
+      
+      // Adds 0's to the frequency data
+      for ( int i = 2; i <= 12; i++ ) {
+         frequencyData.add(0);
+      }
+      
+      // Rolls the dice numberOfRolls times
+      for (int i = 0; i < numberOfRolls ; i++)
+      { 
+         dice.roll();
+         rollResult.add( dice.getDiceTotal());
+      }
+      
+      // Counts the number of 2's, 3's,
+      for (int i = 0; i < numberOfRolls ; i++)
+      { 
+         for (int j = 2; j <= 12 ; j++)
+         {
+            if ( rollResult.get( i) == j )
+               frequencyData.set( j - 2, frequencyData.get( j - 2) + 1);
+         }
+      }
+      
+      // Finds the maximum frequency
+      maximumFrequency = frequencyData.get(0);
+      for ( int i = 0; i <= 10 ; i++)
+      { 
+         if ( maximumFrequency < frequencyData.get(i))
+            maximumFrequency = frequencyData.get(i);
+      }
+      
+      // Divides maximum frequency with 10 to scale the histogram
+      scale = (int) maximumFrequency / scaleConstant;
+      
+      // Divides the frequencyData with scale to find the number of stars each coulumn will have
+      for ( int i = 0; i <= 10; i++)
+      {
+         frequencyData.set (i, (int) frequencyData.get (i) / scale  );
+      }
+      
+      // To transport maximum frequency, NUMBEROFROLLS, SCALECONSTANT to other method
+      frequencyData.add( maximumFrequency);
+      frequencyData.add( numberOfRolls);
+      frequencyData.add( scaleConstant);
+      
+      return frequencyData;    
+   }
+   
+    /**
+    * Prints the data in the form of a histogram
+    * @param frequencyData the frequency data
+    */
+   public static void histogramCreator ( ArrayList<Integer> frequencyData )
+   {
+      int maximumFrequency;
+      int numberOfRolls;
+      int scaleConstant;
+      
+      maximumFrequency = frequencyData.get( 11);
+      numberOfRolls = frequencyData.get( 12);
+      scaleConstant = frequencyData.get( 13);
+      maximumFrequency = frequencyData.remove( 11);
+      numberOfRolls = frequencyData.remove( 12);
+      scaleConstant = frequencyData.remove( 13);  
+      
+      System.out.print("Frequency Distribution\n for " + numberOfRolls + " Dice rolls" + "\n" + " ( max freq is " + maximumFrequency + " )");
+      System.out.println("\n");
+      
+      // Creates the histogram
+      
+      for (int i = scaleConstant; i > 0 ; i--) {
+         for ( int j = 0; j <= 10; j++) {
+            if ( frequencyData.get(j) >= i)
+               System.out.print("* ");
+            else
+               System.out.print("  ");
+         }
+         System.out.println();
+      }
+   }
+}

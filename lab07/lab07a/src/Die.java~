@@ -1,0 +1,53 @@
+/**
+ * Includes a method for rolling the die
+ * @author Munib Emre Sevilgen
+ * @version 1.00 2017-11-28
+ */ 
+
+public class Die
+{ 
+   // properties
+   int faceOfDie;
+
+   // constructors
+   public Die() {
+      faceOfDie = 0;
+   }
+   
+   // methods
+   
+   /**
+    * This is the method to generate random integer values within a range.
+    * @param min is the lower boundary of range (inclusive)
+    * @param max is the upper boundary of range (inclusive)
+    * @return result of the roll
+    */
+   public int roll(int min, int max)
+   { 
+      int range;
+      int rollResult;
+      
+      range = ( max - min) + 1;
+      rollResult = (int) ( Math.random() * range) + min;
+      return rollResult;
+   }
+   
+   /**
+    * Gets the current face value of die.
+    * @return current face value of die
+    */
+   public int getFaceValue() 
+   { 
+      faceOfDie = roll ( 1 , 6 );
+      return faceOfDie;
+   }
+   
+   /**
+    * Returns face of die as a string
+    * @return face of die as a string
+    */
+   public String toString()
+   {
+      return "" + faceOfDie;
+   }
+}

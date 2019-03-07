@@ -1,0 +1,73 @@
+import java.util.Scanner;
+/**
+ * Tests LibraryBook
+ * @author Munib Emre Sevilgen
+ * @version 1.00 2017-12-05
+ */ 
+
+public class TestLibraryBook
+{ 
+   public static void main (String[] args)
+   {
+      // constants
+      
+      // variables
+      LibraryBook testBook;
+      LibraryBook testBook2;
+      LibraryBook testBook3 ;
+      LibraryBook testBook4 ;
+           
+      // program code
+      
+      // Initilize the book title, authors name and create LibraryBook objects
+      
+      testBook = new LibraryBook( "Tutunamayanlar" , "Oguz Atay" );
+      testBook2 = new LibraryBook ( "Yeraltindan Notlar", "Dostoyevski" );
+      testBook3 = testBook;
+      testBook4 = new LibraryBook( testBook2);
+      
+      testBook.loanBook("1");
+      testBook2.loanBook("2");
+      testBook3.loanBook("3");
+      testBook4.loanBook("4");
+      
+      System.out.println( testBook.toString());
+      System.out.println( "\n" + testBook2.toString());
+      System.out.println( "\n" + testBook3.toString());
+      System.out.println( "\n" + testBook4.toString() + "\n");
+      
+      
+      // Two references to one object
+      if (testBook.equals(testBook3))
+         System.out.println("Two references to one object compared with .equals gives positive result.");
+      else
+         System.out.println("Two references to one object compared with .equals gives negative result.");
+      if (testBook == testBook3)
+         System.out.println("Two references to one object compared with == gives positive result.");
+      else
+         System.out.println("Two references to one object compared with == gives negative result.");
+      
+      // Two references to two different objects
+      if (testBook.equals(testBook2))
+         System.out.println("Two references to two different objects compared with .equals gives positive result.");
+      else
+         System.out.println("Two references to two different objects compared with .equals gives negative result.");
+      if (testBook == testBook2)
+         System.out.println("Two references to two different objects compared with == gives positive result.");
+      else
+         System.out.println("Two references to two different objects compared with == gives negative result.");
+      
+      // Two references to two individual objects having identical properties
+      if (testBook2.equals(testBook4))
+         System.out.println("Two references to two individual objects having identical properties compared with .equals gives positive result.");
+      else
+         System.out.println("Two references to two individual objects having identical properties compared with .equals gives negative result.");
+      
+      if (testBook2 == testBook4)
+         System.out.println("Two references to two individual objects having identical properties compared with == gives positive result.");
+      else
+         System.out.println("Two references to two individual objects having identical properties compared with == gives negative result.");
+      
+      
+   }
+}

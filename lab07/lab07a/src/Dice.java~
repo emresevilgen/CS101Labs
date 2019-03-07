@@ -1,0 +1,71 @@
+/**
+ * Tests methods for DiceGame
+ * @author Munib Emre Sevilgen
+ * @version 1.00 2017-11-28
+ */ 
+
+public class Dice
+{ 
+  // properties
+  int face1;
+  int face2;
+  int total;
+  Die die1;
+  Die die2;
+  
+  // constructor
+  public Dice()
+  {
+    die1 = new Die();
+    die2 = new Die();
+    face1 = 0;
+    face2 = 0;
+    total = 0;
+  }
+  
+  // methods
+  /**
+   * Rolls two die and give a total value.
+   * @return sum of the face values of dices
+   */
+  public int roll()
+  { 
+    face1 = die1.getFaceValue();
+    face2 = die2.getFaceValue();
+    
+    total = face1 + face2;
+    return total;
+  }
+  /**
+   * Gets face value of first die.
+   * @return face value of the first dice
+   */
+  public int getDie1FaceValue()
+  { 
+     return face1;
+  }
+  /**
+   * Gets face value of second die.
+   * @return face value of the second dice
+   */
+  public int getDie2FaceValue()
+  { 
+     return face2;
+  }
+  /**
+   * Gets total value of two die
+   * @return total value of two die
+   */
+  public int getDiceTotal()
+  { 
+     return total;
+  }
+  /**
+   * Gets the string of total
+   * @return string of total
+   */
+  public String toString()
+   {
+      return "" + total;
+   }
+} 

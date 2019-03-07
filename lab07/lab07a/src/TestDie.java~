@@ -1,0 +1,27 @@
+/**
+ * Tests Die
+ * @author Munib Emre Sevilgen
+ * @version 1.00 2017-11-28
+ */ 
+public  class TestDie
+{
+   public static void main (String [] args)
+   {
+      // constants
+
+      // variables
+      Die die1;
+      Die die2;
+      int firstRoll;
+      int secondRoll;
+      
+      // program code
+      die1 = new Die();
+      die2 = new Die();
+      
+      firstRoll = die1.getFaceValue();
+      System.out.println( "First Dice: " + die1.toString() + " or " + firstRoll );
+      secondRoll = die2.getFaceValue();
+      System.out.println( "Second Dice: " + die2.toString() + " or " + secondRoll );
+   }
+}

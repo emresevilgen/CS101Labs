@@ -1,0 +1,21 @@
+/**
+ * Tests DiceGame
+ * @author Munib Emre Sevilgen
+ * @version 1.00 2017-11-28
+ */ 
+public class TestDiceGame
+{
+   public static void main (String[] args)
+   {
+      // constants
+
+      // variables
+      int result;
+      DiceGame playGame;
+      
+      // program code
+      playGame = new DiceGame();
+      result = playGame.play();
+      System.out.println( playGame.toString());
+   }
+}

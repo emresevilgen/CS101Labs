@@ -1,0 +1,47 @@
+/**
+ * Die methods
+ * @author Munib Emre Sevilgen
+ * @version 1.00 2017-11-28
+ */ 
+
+public class DiceGame
+{
+   // properties
+   private Dice dice;
+   private int count;
+   private int numberOfFaces;
+   // constructors
+   public DiceGame( int numberOfFaces) 
+   {
+      this.numberOfFaces = numberOfFaces;
+      dice = new Dice( numberOfFaces );
+      count = 0;
+   }
+   
+   // methods
+
+   /**
+    * Demonstrates DiceGame.
+    */
+   public void play ()
+   {
+      int firstDie;
+      int secondDie;
+      do {
+         dice.roll();
+         firstDie = dice.getDie1FaceValue();
+         secondDie = dice.getDie2FaceValue();
+         count++;
+         System.out.println (firstDie + " - " + secondDie);
+      } while ( dice.getDiceTotal() != numberOfFaces * 2);
+   } 
+   
+   /**
+    * To get the number of total rolls as a string
+    * @return the number of times the dice rolled as a string
+    */
+   public String toString()
+   {
+      return dice.toString() + "\nNumber of times rolled: " + count;
+   }
+}

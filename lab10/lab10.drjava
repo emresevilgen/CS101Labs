@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<drjava version="drjava-20160913-225446">
+  <project autorefresh="false" build="classes/" root="" work="src/">
+    <createjar file=""/>
+    <source>
+      <file active="true" name="src/BigNum.java" package="" timestamp="19-Dec-2017 10:58:05">
+        <select from="2327" to="2327"/>
+        <scroll column="1534" row="0"/>
+      </file>
+      <file name="src/Lab10a.java" package="" timestamp="19-Dec-2017 09:37:43">
+        <select from="2327" to="2327"/>
+        <scroll column="1534" row="0"/>
+      </file>
+      <file name="src/Lab10b.java" package="" timestamp="19-Dec-2017 10:52:39">
+        <select from="2327" to="2327"/>
+        <scroll column="1534" row="0"/>
+      </file>
+    </source>
+    <included/>
+    <excluded/>
+    <collapsed/>
+    <classpath/>
+    <breakpoints/>
+    <watches/>
+    <bookmarks/>
+    <preferences/>
+  </project>
+</drjava>
